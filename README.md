@@ -1,7 +1,7 @@
 # 🕷️ SpiderNet — Crime Intelligence Dashboard
 
 A **Streamlit-based crime analysis platform** for San Francisco PD crime data.  
-Built for the DataWeb Ideathon, SpiderNet helps law enforcement intelligence teams detect anomalies, hotspots, and patterns in crime data.
+Built for the DataWeb Hackathon, SpiderNet helps law enforcement intelligence teams detect anomalies, hotspots, and patterns in crime data.
 
 ---
 
