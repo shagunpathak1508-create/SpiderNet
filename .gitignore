@@ -1,44 +1,43 @@
-# Python
+# ===========================
+# SpiderNet - .gitignore
+# ===========================
+
+# Large data files (too big for GitHub)
+data/
+*.csv
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# Anaconda project files
+anaconda_projects/
+
+# Unnecessary personal/media files
+*.jpeg
+*.jpg
+*.pdf
+Untitled.ipynb
+
+# Python cache
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
-.Python
-*.egg
-*.egg-info/
-dist/
-build/
-.eggs/
 
-# Jupyter Notebook checkpoints
-.ipynb_checkpoints/
-notebooks/.ipynb_checkpoints/
-Untitled.ipynb
-
-# Anaconda / Conda
-anaconda_projects/
-
-# Streamlit cache
-.streamlit/
-
-# Environment files
+# Virtual environments
 .env
-*.env
 venv/
 env/
-
-# WhatsApp / personal media
-WhatsApp Image*.jpeg
-WhatsApp Image*.jpg
-whatsapp*.jpeg
-whatsapp*.jpg
-newwhats.jpeg
-whatsappimg.jpeg
+.venv/
 
 # OS files
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# IDE settings
+# IDE/editor files
 .vscode/
 .idea/
+*.suo
+*.user
