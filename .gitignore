@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/
+Untitled.ipynb
+
+# Anaconda / Conda
+anaconda_projects/
+
+# Streamlit cache
+.streamlit/
+
+# Environment files
+.env
+*.env
+venv/
+env/
+
+# WhatsApp / personal media
+WhatsApp Image*.jpeg
+WhatsApp Image*.jpg
+whatsapp*.jpeg
+whatsapp*.jpg
+newwhats.jpeg
+whatsappimg.jpeg
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+.idea/

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_ee29ae6af2ad59dd9da86317c4e56d2f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="position: fixed; top: 15px; left: 50%; transform: translateX(-50%);
+     z-index:9999; background: rgba(13,17,23,0.92); color: white; padding: 10px 20px;
+     border-radius: 8px; font-family:sans-serif; font-size:15px; font-weight:bold;
+     border: 1px solid #30363d;">
+     🕷️ SpiderNet — District Crime Map (circle size = crime volume)
+</div>
+    
+            <div class="folium-map" id="map_ee29ae6af2ad59dd9da86317c4e56d2f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_ee29ae6af2ad59dd9da86317c4e56d2f = L.map(
+                "map_ee29ae6af2ad59dd9da86317c4e56d2f",
+                {
+                    center: [37.77, -122.42],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_dac85af152bc1ee1e4f76b1049d370a6 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_dac85af152bc1ee1e4f76b1049d370a6.addTo(map_ee29ae6af2ad59dd9da86317c4e56d2f);
+        
+    
+            var circle_marker_235024b290d1218164cd8c4d70c5d16a = L.circleMarker(
+                [37.77992118510707, -122.40528621412663],
+                {"bubblingMouseEvents": true, "color": "#ff0040", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0040", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 35.0, "stroke": true, "weight": 3}
+            ).addTo(map_ee29ae6af2ad59dd9da86317c4e56d2f);
+        
+    
+        var popup_1a55a9760ac4b86c191acfe054101078 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_496c990a6ce793edc26c86dfb138b70d = $(`<div id="html_496c990a6ce793edc26c86dfb138b70d" style="width: 100.0%; height: 100.0%;"><div style='font-family:monospace; background:#0d1117; color:#cdd9e5; padding:8px; border-radius:6px; min-width:160px;'><b style='color:#58a6ff'>#1 SOUTHERN</b><br>Total crimes: <b style='color:#ff6b6b'>156,520</b><br>Share: 17.87%<br>Crime types: 38</div></div>`)[0];
+                popup_1a55a9760ac4b86c191acfe054101078.setContent(html_496c990a6ce793edc26c86dfb138b70d);
+            
+        
+
+        circle_marker_235024b290d1218164cd8c4d70c5d16a.bindPopup(popup_1a55a9760ac4b86c191acfe054101078)
+        ;
+
+        
+    
+    
+            circle_marker_235024b290d1218164cd8c4d70c5d16a.bindTooltip(
+                `<div>
+                     SOUTHERN: 156,520 crimes (Rank #1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f1559771a18f13641ca1cd8f85c79a8a = L.circleMarker(
+                [37.75995917165726, -122.4194110988689],
+                {"bubblingMouseEvents": true, "color": "#e21c40", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e21c40", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 26.08503593636437, "stroke": true, "weight": 3}
+            ).addTo(map_ee29ae6af2ad59dd9da86317c4e56d2f);
+        
+    
+        var popup_a0b06f76978b14bbcd83e8354020d9a3 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_f521724d03f56e87675cfcf80092f4c2 = $(`<div id="html_f521724d03f56e87675cfcf80092f4c2" style="width: 100.0%; height: 100.0%;"><div style='font-family:monospace; background:#0d1117; color:#cdd9e5; padding:8px; border-radius:6px; min-width:160px;'><b style='color:#58a6ff'>#2 MISSION</b><br>Total crimes: <b style='color:#ff6b6b'>119,722</b><br>Share: 13.67%<br>Crime types: 39</div></div>`)[0];
+                popup_a0b06f76978b14bbcd83e8354020d9a3.setContent(html_f521724d03f56e87675cfcf80092f4c2);
+            
+        
+
+        circle_marker_f1559771a18f13641ca1cd8f85c79a8a.bindPopup(popup_a0b06f76978b14bbcd83e8354020d9a3)
+        ;
+
+        
+    
+    
+            circle_marker_f1559771a18f13641ca1cd8f85c79a8a.bindTooltip(
+                `<div>
+                     MISSION: 119,722 crimes (Rank #2)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_267a0bc16f101689eebb33da253fd0b9 = L.circleMarker(
+                [37.78638163860145, -122.42664693313235],
+                {"bubblingMouseEvents": true, "color": "#c63840", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c63840", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 22.540902850682386, "stroke": true, "weight": 3}
+            ).addTo(map_ee29ae6af2ad59dd9da86317c4e56d2f);
+        
+    
+        var popup_253061ec2592c926b3d041fcbf963a93 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_aa9d2bf620f4ea16fe4ddd10fd823cac = $(`<div id="html_aa9d2bf620f4ea16fe4ddd10fd823cac" style="width: 100.0%; height: 100.0%;"><div style='font-family:monospace; background:#0d1117; color:#cdd9e5; padding:8px; border-radius:6px; min-width:160px;'><b style='color:#58a6ff'>#3 NORTHERN</b><br>Total crimes: <b style='color:#ff6b6b'>105,093</b><br>Share: 12.0%<br>Crime types: 39</div></div>`)[0];
+                popup_253061ec2592c926b3d041fcbf963a93.setContent(html_aa9d2bf620f4ea16fe4ddd10fd823cac);
+            
+        
+
+        circle_marker_267a0bc16f101689eebb33da253fd0b9.bindPopup(popup_253061ec2592c926b3d041fcbf963a93)
+        ;
+
+        
+    
+    
+            circle_marker_267a0bc16f101689eebb33da253fd0b9.bindTooltip(
+                `<div>
+                     NORTHERN: 105,093 crimes (Rank #3)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7c008f477fe2e7fa56ddfaf4bf76440e = L.circleMarker(
+                [37.737255617659926, -122.39354529171658],
+                {"bubblingMouseEvents": true, "color": "#aa5440", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#aa5440", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.663651780667045, "stroke": true, "weight": 3}
+            ).addTo(map_ee29ae6af2ad59dd9da86317c4e56d2f);
+        
+    
+        var popup_41e4efcb47b6705a7cfa589065d653dd = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_cb89073f84287aa77862e26f9c257f44 = $(`<div id="html_cb89073f84287aa77862e26f9c257f44" style="width: 100.0%; height: 100.0%;"><div style='font-family:monospace; background:#0d1117; color:#cdd9e5; padding:8px; border-radius:6px; min-width:160px;'><b style='color:#58a6ff'>#4 BAYVIEW</b><br>Total crimes: <b style='color:#ff6b6b'>89,089</b><br>Share: 10.17%<br>Crime types: 39</div></div>`)[0];
+                popup_41e4efcb47b6705a7cfa589065d653dd.setContent(html_cb89073f84287aa77862e26f9c257f44);
+            
+        
+
+        circle_marker_7c008f477fe2e7fa56ddfaf4bf76440e.bindPopup(popup_41e4efcb47b6705a7cfa589065d653dd)
+        ;
+
+        
+    
+    
+            circle_marker_7c008f477fe2e7fa56ddfaf4bf76440e.bindTooltip(
+                `<div>
+                     BAYVIEW: 89,089 crimes (Rank #4)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c0825235cc7e3552e2d136cd4f3b25d9 = L.circleMarker(
+                [37.795682773224954, -122.40961994676086],
+                {"bubblingMouseEvents": true, "color": "#8d7140", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8d7140", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 17.736493579907936, "stroke": true, "weight": 3}
+            ).addTo(map_ee29ae6af2ad59dd9da86317c4e56d2f);
+        
+    
+        var popup_b54ad002779c6e4f659bd3670b9e3914 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_8e8d74423fc386efacd379b2195b3442 = $(`<div id="html_8e8d74423fc386efacd379b2195b3442" style="width: 100.0%; height: 100.0%;"><div style='font-family:monospace; background:#0d1117; color:#cdd9e5; padding:8px; border-radius:6px; min-width:160px;'><b style='color:#58a6ff'>#5 CENTRAL</b><br>Total crimes: <b style='color:#ff6b6b'>85,262</b><br>Share: 9.74%<br>Crime types: 39</div></div>`)[0];
+                popup_b54ad002779c6e4f659bd3670b9e3914.setContent(html_8e8d74423fc386efacd379b2195b3442);
+            
+        
+
+        circle_marker_c0825235cc7e3552e2d136cd4f3b25d9.bindPopup(popup_b54ad002779c6e4f659bd3670b9e3914)
+        ;
+
+        
+    
+    
+            circle_marker_c0825235cc7e3552e2d136cd4f3b25d9.bindTooltip(
+                `<div>
+                     CENTRAL: 85,262 crimes (Rank #5)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b970b00e5863b5ae8f97ee1676d2f3dc = L.circleMarker(
+                [37.78380132074772, -122.41250560957913],
+                {"bubblingMouseEvents": true, "color": "#718d40", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#718d40", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.855850763143017, "stroke": true, "weight": 3}
+            ).addTo(map_ee29ae6af2ad59dd9da86317c4e56d2f);
+        
+    
+        var popup_5718378eee3d74f6d650d58b053ca096 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_bc82086bab1e647b96bd1cb51e4f0940 = $(`<div id="html_bc82086bab1e647b96bd1cb51e4f0940" style="width: 100.0%; height: 100.0%;"><div style='font-family:monospace; background:#0d1117; color:#cdd9e5; padding:8px; border-radius:6px; min-width:160px;'><b style='color:#58a6ff'>#6 TENDERLOIN</b><br>Total crimes: <b style='color:#ff6b6b'>81,627</b><br>Share: 9.32%<br>Crime types: 38</div></div>`)[0];
+                popup_5718378eee3d74f6d650d58b053ca096.setContent(html_bc82086bab1e647b96bd1cb51e4f0940);
+            
+        
+
+        circle_marker_b970b00e5863b5ae8f97ee1676d2f3dc.bindPopup(popup_5718378eee3d74f6d650d58b053ca096)
+        ;
+
+        
+    
+    
+            circle_marker_b970b00e5863b5ae8f97ee1676d2f3dc.bindTooltip(
+                `<div>
+                     TENDERLOIN: 81,627 crimes (Rank #6)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e9591756199ac61d25d263d9d054f648 = L.circleMarker(
+                [37.726542227405496, -122.4288342343542],
+                {"bubblingMouseEvents": true, "color": "#55aa40", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#55aa40", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.15109424210611, "stroke": true, "weight": 3}
+            ).addTo(map_ee29ae6af2ad59dd9da86317c4e56d2f);
+        
+    
+        var popup_2934bcad5b25c8bb801d386957cbbfe9 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_e3bed154f88ad59c2ac819d91bdbc2ac = $(`<div id="html_e3bed154f88ad59c2ac819d91bdbc2ac" style="width: 100.0%; height: 100.0%;"><div style='font-family:monospace; background:#0d1117; color:#cdd9e5; padding:8px; border-radius:6px; min-width:160px;'><b style='color:#58a6ff'>#7 INGLESIDE</b><br>Total crimes: <b style='color:#ff6b6b'>78,718</b><br>Share: 8.99%<br>Crime types: 37</div></div>`)[0];
+                popup_2934bcad5b25c8bb801d386957cbbfe9.setContent(html_e3bed154f88ad59c2ac819d91bdbc2ac);
+            
+        
+
+        circle_marker_e9591756199ac61d25d263d9d054f648.bindPopup(popup_2934bcad5b25c8bb801d386957cbbfe9)
+        ;
+
+        
+    
+    
+            circle_marker_e9591756199ac61d25d263d9d054f648.bindTooltip(
+                `<div>
+                     INGLESIDE: 78,718 crimes (Rank #7)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_041e014bec00a6556decf6f88e685665 = L.circleMarker(
+                [37.737569089867456, -122.47734676280994],
+                {"bubblingMouseEvents": true, "color": "#38c640", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#38c640", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.92360494225955, "stroke": true, "weight": 3}
+            ).addTo(map_ee29ae6af2ad59dd9da86317c4e56d2f);
+        
+    
+        var popup_1896b90eeccf3ec735703379c203be0b = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_c56092c1331bd2012a76c14bd3948836 = $(`<div id="html_c56092c1331bd2012a76c14bd3948836" style="width: 100.0%; height: 100.0%;"><div style='font-family:monospace; background:#0d1117; color:#cdd9e5; padding:8px; border-radius:6px; min-width:160px;'><b style='color:#58a6ff'>#8 TARAVAL</b><br>Total crimes: <b style='color:#ff6b6b'>65,396</b><br>Share: 7.47%<br>Crime types: 38</div></div>`)[0];
+                popup_1896b90eeccf3ec735703379c203be0b.setContent(html_c56092c1331bd2012a76c14bd3948836);
+            
+        
+
+        circle_marker_041e014bec00a6556decf6f88e685665.bindPopup(popup_1896b90eeccf3ec735703379c203be0b)
+        ;
+
+        
+    
+    
+            circle_marker_041e014bec00a6556decf6f88e685665.bindTooltip(
+                `<div>
+                     TARAVAL: 65,396 crimes (Rank #8)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_eeccd3626e4cfd89685ddcc63d3058eb = L.circleMarker(
+                [37.77029859362139, -122.4454471519437],
+                {"bubblingMouseEvents": true, "color": "#1ce240", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1ce240", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.989905515626262, "stroke": true, "weight": 3}
+            ).addTo(map_ee29ae6af2ad59dd9da86317c4e56d2f);
+        
+    
+        var popup_e4dd5b87d4bf5d8a5c49020a889fb4bb = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_4601ba699e026fb8d264991b4bd87087 = $(`<div id="html_4601ba699e026fb8d264991b4bd87087" style="width: 100.0%; height: 100.0%;"><div style='font-family:monospace; background:#0d1117; color:#cdd9e5; padding:8px; border-radius:6px; min-width:160px;'><b style='color:#58a6ff'>#9 PARK</b><br>Total crimes: <b style='color:#ff6b6b'>49,159</b><br>Share: 5.61%<br>Crime types: 37</div></div>`)[0];
+                popup_e4dd5b87d4bf5d8a5c49020a889fb4bb.setContent(html_4601ba699e026fb8d264991b4bd87087);
+            
+        
+
+        circle_marker_eeccd3626e4cfd89685ddcc63d3058eb.bindPopup(popup_e4dd5b87d4bf5d8a5c49020a889fb4bb)
+        ;
+
+        
+    
+    
+            circle_marker_eeccd3626e4cfd89685ddcc63d3058eb.bindTooltip(
+                `<div>
+                     PARK: 49,159 crimes (Rank #9)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2434db8ad85701d857df4f0ed7ee8480 = L.circleMarker(
+                [37.780210076591665, -122.47008849498242],
+                {"bubblingMouseEvents": true, "color": "#00ff40", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00ff40", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.0, "stroke": true, "weight": 3}
+            ).addTo(map_ee29ae6af2ad59dd9da86317c4e56d2f);
+        
+    
+        var popup_a954893d565f1f2188f71562d222412a = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_52cf5b8e77c9af3a75312000a7be620a = $(`<div id="html_52cf5b8e77c9af3a75312000a7be620a" style="width: 100.0%; height: 100.0%;"><div style='font-family:monospace; background:#0d1117; color:#cdd9e5; padding:8px; border-radius:6px; min-width:160px;'><b style='color:#58a6ff'>#10 RICHMOND</b><br>Total crimes: <b style='color:#ff6b6b'>45,073</b><br>Share: 5.15%<br>Crime types: 38</div></div>`)[0];
+                popup_a954893d565f1f2188f71562d222412a.setContent(html_52cf5b8e77c9af3a75312000a7be620a);
+            
+        
+
+        circle_marker_2434db8ad85701d857df4f0ed7ee8480.bindPopup(popup_a954893d565f1f2188f71562d222412a)
+        ;
+
+        
+    
+    
+            circle_marker_2434db8ad85701d857df4f0ed7ee8480.bindTooltip(
+                `<div>
+                     RICHMOND: 45,073 crimes (Rank #10)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
