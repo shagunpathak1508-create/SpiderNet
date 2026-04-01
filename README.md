@@ -1,15 +1,19 @@
 # 🕷️ SpiderNet – Detect. Connect. Predict.
-Project Overview
+**Project Overview**
+
 SpiderNet is an intelligent crime analysis and prediction system inspired by how spiders detect vibrations in their webs and sense disturbances. Instead of reacting after crimes occur, SpiderNet focuses on early detection, pattern recognition, and predictive insights using real-world crime data. The system transforms static crime datasets into a dynamic, interconnected intelligence network, enabling better decision-making and faster response.
 
-Problem Statement
+**Problem Statement**
+
 Crime systems are reactive, not predictive → action starts after damage is done
 Rising urban crime is worsened by delayed detection and manual analysis
 Emerging hotspots go unnoticed until they escalate
 No real-time intelligence → slow response, poor resource use
 Dashboards show data, not connections → patterns stay hidden
 Missed patterns today become crimes tomorrow
-Proposed Solution
+
+**Proposed Solution**
+
 Spiders sense danger through vibrations in their web — not by sight, but by signal pulses
 This allows instant identification of threats and precise response
 SpiderNet adapts this mechanism to crime data by detecting: Crime spikes Pattern clusters Hotspot intensity
